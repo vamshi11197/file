@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:file="http://www.mulesoft.org/schema/mule/file" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:sockets="http://www.mulesoft.org/schema/mule/sockets"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/sockets http://www.mulesoft.org/schema/mule/sockets/current/mule-sockets.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="24d12076-1a8b-4fbf-8953-dc19027319f5" >
+		<http:listener-connection host="localhost" port="8081" />
+	</http:listener-config>
+	<file:config name="File_Config" doc:name="File Config" doc:id="21bc0fa3-bb5e-4c50-9c36-faeb61dbaf55" />
+	<file:config name="File_Config1" doc:name="File Config" doc:id="baecc1a8-0fe6-4210-8e29-13071e220514" />
+	<flow name="PrivateFlow" doc:id="45397c05-3fdd-44f6-a69f-0f0b0059133e" >
+		<http:listener doc:name="Listener" doc:id="dbf6ba1f-a7b0-443c-9fd4-12ff43ddc0a8" config-ref="HTTP_Listener_config" path="flow"/>
+		<file:move doc:name="Move" doc:id="e361c6e6-ba2b-4d90-9aff-b5833fed4cf3" sourcePath="C:\Users\DELL\Desktop\source\third.txt" targetPath="C:\Users\DELL\Desktop\target" renameTo="thirdd"/>
+	</flow>
+</mule>
